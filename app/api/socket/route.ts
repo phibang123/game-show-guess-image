@@ -65,4 +65,105 @@ export default ioHandler;
 ```
 
 Sau đó, ở phía client, chúng ta sẽ sử dụng socket.io-client để kết nối và lắng nghe sự kiện.
-*/ 
+*/
+
+import { NextResponse } from 'next/server';
+import { Server } from 'socket.io';
+
+// Biến toàn cục để lưu trữ instances của Socket.IO Server
+let io: Server;
+
+export async function GET() {
+  if (!io) {
+    // Khởi tạo Socket.IO Server nếu chưa tồn tại
+    io = new Server({
+      cors: {
+        origin: '*',
+        methods: ['GET', 'POST'],
+      },
+    });
+
+    // Thiết lập các sự kiện socket
+    io.on('connection', (socket) => {
+      console.log('Client connected:', socket.id);
+
+      // Sự kiện tham gia phòng
+      socket.on('join-room', (roomId) => {
+        socket.join(roomId);
+        console.log(`Socket ${socket.id} joined room ${roomId}`);
+      });
+
+      // Sự kiện cập nhật trạng thái phòng (đội tham gia và người xem)
+      socket.on('request-room-stats', async (gameId) => {
+        try {
+          // Giả lập dữ liệu từ database (thay thế bằng truy vấn thật sau)
+          // Trong triển khai thực tế, bạn sẽ lấy dữ liệu từ Database (Redis, MongoDB, v.v.)
+          const mockGame = {
+            teams: Array(Math.floor(Math.random() * 5)).fill(null), 
+            audience: Array(Math.floor(Math.random() * 20)).fill(null),
+            maxTeams: 5
+          };
+          
+          const roomStats = {
+            gameId,
+            teamsCount: mockGame.teams.length,
+            audienceCount: mockGame.audience.length,
+            maxTeams: mockGame.maxTeams,
+          };
+          
+          // Phát sóng cập nhật đến tất cả clients trong phòng
+          io.to(gameId).emit('room-stats-updated', roomStats);
+        } catch (error) {
+          console.error('Error fetching room stats:', error);
+        }
+      });
+
+      // Cập nhật tự động mỗi 5 giây
+      socket.on('start-auto-updates', (gameId) => {
+        // Lưu interval ID vào socket để có thể xóa khi disconnect
+        const intervalId = setInterval(async () => {
+          try {
+            // Giả lập dữ liệu từ database (thay thế bằng truy vấn thật sau)
+            const mockGame = {
+              teams: Array(Math.floor(Math.random() * 5)).fill(null),
+              audience: Array(Math.floor(Math.random() * 20)).fill(null),
+              maxTeams: 5
+            };
+            
+            const roomStats = {
+              gameId,
+              teamsCount: mockGame.teams.length,
+              audienceCount: mockGame.audience.length,
+              maxTeams: mockGame.maxTeams,
+            };
+            
+            io.to(gameId).emit('room-stats-updated', roomStats);
+          } catch (error) {
+            console.error('Error in auto-update:', error);
+          }
+        }, 5000); // Cập nhật mỗi 5 giây
+        
+        // Lưu intervalId vào socket data
+        socket.data.autoUpdateInterval = intervalId;
+      });
+      
+      // Dừng cập nhật tự động
+      socket.on('stop-auto-updates', () => {
+        if (socket.data.autoUpdateInterval) {
+          clearInterval(socket.data.autoUpdateInterval);
+        }
+      });
+
+      // Sự kiện ngắt kết nối
+      socket.on('disconnect', () => {
+        // Dọn dẹp interval khi client ngắt kết nối
+        if (socket.data.autoUpdateInterval) {
+          clearInterval(socket.data.autoUpdateInterval);
+        }
+        console.log('Client disconnected:', socket.id);
+      });
+    });
+  }
+
+  return new NextResponse('Socket.IO Server đang chạy', { status: 200 });
+} 
