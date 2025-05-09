@@ -1,0 +1,371 @@
+{
+  "lp0uqxdw4c8": {
+    "gameId": "lp0uqxdw4c8",
+    "hostCode": "123123",
+    "teams": [],
+    "audience": [],
+    "maxTeams": 5,
+    "maxTeamMembers": 5,
+    "rounds": [],
+    "currentRound": 0,
+    "phase": "setup",
+    "timeLimit": 60,
+    "roundsCount": 5
+  },
+  "mh28gw6oy2g": {
+    "gameId": "mh28gw6oy2g",
+    "hostCode": "hello",
+    "teams": [],
+    "audience": [],
+    "maxTeams": 5,
+    "maxTeamMembers": 5,
+    "rounds": [
+      {
+        "id": "round-1",
+        "hiddenImage": "/images/hidden-1.jpg",
+        "teamInputs": {},
+        "generatedImages": {},
+        "votes": {}
+      },
+      {
+        "id": "round-2",
+        "hiddenImage": "/images/hidden-2.jpg",
+        "teamInputs": {},
+        "generatedImages": {},
+        "votes": {}
+      },
+      {
+        "id": "round-3",
+        "hiddenImage": "/images/hidden-3.jpg",
+        "teamInputs": {},
+        "generatedImages": {},
+        "votes": {}
+      },
+      {
+        "id": "round-4",
+        "hiddenImage": "/images/hidden-4.jpg",
+        "teamInputs": {},
+        "generatedImages": {},
+        "votes": {}
+      },
+      {
+        "id": "round-5",
+        "hiddenImage": "/images/hidden-5.jpg",
+        "teamInputs": {},
+        "generatedImages": {},
+        "votes": {}
+      }
+    ],
+    "currentRound": 0,
+    "phase": "team-input",
+    "timeLimit": 60,
+    "roundsCount": 5
+  },
+  "9k3uwfb44dj": {
+    "gameId": "9k3uwfb44dj",
+    "hostCode": "hi@123123",
+    "teams": [
+      {
+        "id": "yixh8z4",
+        "name": "Đội Ngu",
+        "members": [
+          {
+            "id": "5xm59ng",
+            "name": "Bằng Trần",
+            "email": "2@gmial.com",
+            "teamId": "yixh8z4"
+          }
+        ],
+        "score": 0
+      }
+    ],
+    "audience": [],
+    "maxTeams": 5,
+    "maxTeamMembers": 5,
+    "rounds": [],
+    "currentRound": 0,
+    "phase": "setup",
+    "timeLimit": 60,
+    "roundsCount": 5
+  },
+  "lbomya3znka": {
+    "gameId": "lbomya3znka",
+    "hostCode": "hi@123123",
+    "teams": [
+      {
+        "id": "e02qph8",
+        "name": "Đội ngu",
+        "members": [
+          {
+            "id": "pmmd2mu",
+            "name": "Bằng Trần",
+            "email": "2@gmial.com",
+            "teamId": "e02qph8",
+            "input": "Đĩ mẹ m"
+          },
+          {
+            "id": "4kpu5wn",
+            "name": "Formidable",
+            "email": "1@gmail.com",
+            "teamId": "e02qph8",
+            "input": "hello 123123"
+          }
+        ],
+        "score": 0
+      }
+    ],
+    "audience": [],
+    "maxTeams": 5,
+    "maxTeamMembers": 5,
+    "rounds": [
+      {
+        "id": "round-1",
+        "hiddenImage": "/images/hidden-1.jpg",
+        "teamInputs": {
+          "e02qph8": [
+            "Đĩ mẹ m",
+            "hello 123123"
+          ]
+        },
+        "generatedImages": {},
+        "votes": {}
+      },
+      {
+        "id": "round-2",
+        "hiddenImage": "/images/hidden-2.jpg",
+        "teamInputs": {},
+        "generatedImages": {},
+        "votes": {}
+      },
+      {
+        "id": "round-3",
+        "hiddenImage": "/images/hidden-3.jpg",
+        "teamInputs": {},
+        "generatedImages": {},
+        "votes": {}
+      },
+      {
+        "id": "round-4",
+        "hiddenImage": "/images/hidden-4.jpg",
+        "teamInputs": {},
+        "generatedImages": {},
+        "votes": {}
+      },
+      {
+        "id": "round-5",
+        "hiddenImage": "/images/hidden-5.jpg",
+        "teamInputs": {},
+        "generatedImages": {},
+        "votes": {}
+      }
+    ],
+    "currentRound": 0,
+    "phase": "team-input",
+    "timeLimit": 60,
+    "roundsCount": 5
+  },
+  "k214yw6rou": {
+    "gameId": "k214yw6rou",
+    "hostCode": "hashdhasd",
+    "teams": [
+      {
+        "id": "esu3xbx",
+        "name": "bababa",
+        "members": [
+          {
+            "id": "z5i3w70",
+            "name": "Formidable",
+            "email": "2@gmail.com",
+            "teamId": "esu3xbx",
+            "input": "dasd"
+          },
+          {
+            "id": "uad99tp",
+            "name": "Bang",
+            "email": "22@gmail.com",
+            "teamId": "esu3xbx",
+            "input": "asdasdasd"
+          }
+        ],
+        "score": 0
+      }
+    ],
+    "audience": [
+      {
+        "id": "9vm47xn",
+        "name": "Formidable",
+        "email": "1@gmail.com"
+      }
+    ],
+    "maxTeams": 5,
+    "maxTeamMembers": 5,
+    "rounds": [
+      {
+        "id": "round-1",
+        "hiddenImage": "/images/hidden-1.jpg",
+        "teamInputs": {
+          "esu3xbx": [
+            "dasd",
+            "asdasdasd"
+          ]
+        },
+        "generatedImages": {},
+        "votes": {}
+      },
+      {
+        "id": "round-2",
+        "hiddenImage": "/images/hidden-2.jpg",
+        "teamInputs": {},
+        "generatedImages": {},
+        "votes": {}
+      },
+      {
+        "id": "round-3",
+        "hiddenImage": "/images/hidden-3.jpg",
+        "teamInputs": {},
+        "generatedImages": {},
+        "votes": {}
+      },
+      {
+        "id": "round-4",
+        "hiddenImage": "/images/hidden-4.jpg",
+        "teamInputs": {},
+        "generatedImages": {},
+        "votes": {}
+      },
+      {
+        "id": "round-5",
+        "hiddenImage": "/images/hidden-5.jpg",
+        "teamInputs": {},
+        "generatedImages": {},
+        "votes": {}
+      }
+    ],
+    "currentRound": 0,
+    "phase": "team-input",
+    "timeLimit": 60,
+    "roundsCount": 5
+  },
+  "ezo054brzpv": {
+    "gameId": "ezo054brzpv",
+    "hostCode": "hashdhasd",
+    "teams": [],
+    "audience": [],
+    "maxTeams": 5,
+    "maxTeamMembers": 5,
+    "rounds": [],
+    "currentRound": 0,
+    "phase": "setup",
+    "timeLimit": 60,
+    "roundsCount": 5
+  },
+  "4ttzbaoaals": {
+    "gameId": "4ttzbaoaals",
+    "hostCode": "alolao",
+    "teams": [],
+    "audience": [],
+    "maxTeams": 5,
+    "maxTeamMembers": 5,
+    "rounds": [],
+    "currentRound": 0,
+    "phase": "setup",
+    "timeLimit": 60,
+    "roundsCount": 5
+  },
+  "u9qrrmkfuz": {
+    "gameId": "u9qrrmkfuz",
+    "hostCode": "hello",
+    "teams": [],
+    "audience": [],
+    "maxTeams": 5,
+    "maxTeamMembers": 5,
+    "rounds": [],
+    "currentRound": 0,
+    "phase": "setup",
+    "timeLimit": 60,
+    "roundsCount": 5
+  },
+  "fkpt8q23nv5": {
+    "gameId": "fkpt8q23nv5",
+    "hostCode": "hello",
+    "teams": [
+      {
+        "id": "e1ykeq4",
+        "name": "hello kitty",
+        "members": [
+          {
+            "id": "t2r6bxe",
+            "name": "Bang",
+            "email": "22@gmail.com",
+            "teamId": "e1ykeq4"
+          },
+          {
+            "id": "tv7njrj",
+            "name": "Bang",
+            "email": "22@gmail.com",
+            "teamId": "e1ykeq4"
+          },
+          {
+            "id": "vh7kpno",
+            "name": "Formidable",
+            "email": "133@gmail.com",
+            "teamId": "e1ykeq4"
+          }
+        ],
+        "score": 0
+      },
+      {
+        "id": "vs223b7",
+        "name": "Bang Tran",
+        "members": [
+          {
+            "id": "d8p7tch",
+            "name": "Bằng Trần",
+            "email": "22@gmail.com",
+            "teamId": "vs223b7"
+          }
+        ],
+        "score": 0
+      },
+      {
+        "id": "g3ugnfg",
+        "name": "Chết me mày",
+        "members": [],
+        "score": 0
+      },
+      {
+        "id": "73car1l",
+        "name": "Thanks sama",
+        "members": [],
+        "score": 0
+      },
+      {
+        "id": "i3ri1vg",
+        "name": "dasd",
+        "members": [],
+        "score": 0
+      }
+    ],
+    "audience": [],
+    "maxTeams": 5,
+    "maxTeamMembers": 5,
+    "rounds": [],
+    "currentRound": 0,
+    "phase": "setup",
+    "timeLimit": 60,
+    "roundsCount": 5
+  },
+  "jldih49rwg": {
+    "gameId": "jldih49rwg",
+    "hostCode": "dasda",
+    "teams": [],
+    "audience": [],
+    "maxTeams": 5,
+    "maxTeamMembers": 5,
+    "rounds": [],
+    "currentRound": 0,
+    "phase": "setup",
+    "timeLimit": 60,
+    "roundsCount": 5
+  }
+}
