@@ -9,6 +9,7 @@ import { animated, useSpring } from 'react-spring';
 
 import { Button } from '@/app/components/ui/Button';
 import { Input } from '@/app/components/ui/Input';
+import { gameService } from '../api/services';
 
 const AnimatedDiv = animated('div');
 
@@ -83,24 +84,16 @@ export default function HostPage() {
       setIsLoading(true);
       setError('');
       
-      const response = await fetch('/api/game', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-      
-      const result = await response.json();
+      const response = await gameService.createGame(data);
       
       if (response.ok) {
         // Lưu hostCode vào localStorage để sử dụng sau này
         localStorage.setItem('hostCode', data.hostCode);
         
         // Chuyển hướng đến trang chi tiết phòng với gameId
-        router.push(`/host/${result.gameId}`);
+        router.push(`/host/${response.gameId}`);
       } else {
-        setError(`Lỗi: ${result.error}`);
+        setError(`Lỗi: ${response.error}`);
       }
     } catch (error) {
       console.error('Error creating game:', error);

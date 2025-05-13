@@ -10,6 +10,7 @@ import { Button } from '@/app/components/ui/Button';
 import { Input } from '@/app/components/ui/Input';
 import { Card } from '@/app/components/ui/Card';
 import { Team } from '@/app/lib/stores/gameStore';
+import { gameService, teamService } from '../api/services';
 
 const AnimatedDiv = animated('div');
 
@@ -80,26 +81,19 @@ export default function JoinTeamPage() {
   const fetchGameData = async () => {
     try {
       setGameLoading(true);
-      const response = await fetch(`/api/game?gameId=${gameId}`);
+      const data = await gameService.getGame(gameId);
       
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || 'Không thể tải dữ liệu trò chơi');
-      }
-      
-      const game = await response.json();
-      
-      if (game.phase !== 'setup') {
+      if (data.phase !== 'setup') {
         setError('Trò chơi đã bắt đầu, không thể tham gia đội mới');
         setGameLoading(false);
         return;
       }
       
-      const formattedTeams = game.teams.map((team: Team) => ({
+      const formattedTeams = data.teams.map((team: Team) => ({
         id: team.id,
         name: team.name,
         membersCount: team.members.length,
-        maxMembers: game.maxTeamMembers,
+        maxMembers: data.maxTeamMembers,
       }));
       
       setTeams(formattedTeams);
@@ -173,25 +167,14 @@ export default function JoinTeamPage() {
     try {
       setIsLoading(true);
       
-      const response = await fetch('/api/team', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          gameId,
-          teamName,
-        }),
-      });
+      const data = await teamService.createTeam({ gameId, teamName });
       
-      const result = await response.json();
-      
-      if (response.ok) {
+      if (data) {
         // Thêm đội mới vào danh sách
         setTeams([
           ...teams,
           {
-            id: result.teamId,
+            id: data.teamId,
             name: teamName,
             membersCount: 0,
             maxMembers: 5, // Giả định rằng maxMembers mặc định là 5
@@ -199,9 +182,9 @@ export default function JoinTeamPage() {
         ]);
         
         // Tự động chọn đội mới tạo
-        setValue('teamId', result.teamId);
+        setValue('teamId', data.teamId);
       } else {
-        setError(result.error || 'Có lỗi xảy ra khi tạo đội');
+        setError('Có lỗi xảy ra khi tạo đội');
       }
     } catch (error) {
       console.error('Error creating team:', error);
